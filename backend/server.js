@@ -22,4 +22,4 @@ if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, '0.0.0.0', () => console.log(`Serveur lancé sur le port ${PORT}`));
 }
 
-module.exports = app;  // Exporte l'application pour les tests
+module.exports = app;  

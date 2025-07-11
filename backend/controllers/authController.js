@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken'); // Pour gérer l'authentification
 const moment = require('moment'); // Pour gérer les dates et heures
 const {isMobilePhone} = require('validator'); // Pour valider les numéros de téléphone
-const normalizePhone = require('../../app_pcs/utils/normalizePhone'); // Importer la fonction de normalisation
+const normalizePhone = require('../utils/normalizePhone');
 
 
 // Authentification (login)
