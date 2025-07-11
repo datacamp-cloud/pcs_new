@@ -1,0 +1,14 @@
+{/* <View>
+          <DrawerContentScrollView {...props}>
+            <DrawerItemList 
+            {...props}
+            state={{
+              ...props.state,
+              routes: props.state.routes.filter((route: any) => route.name !== 'tabs'), // Exclure la route "Home"
+            }} />
+            {/* Bouton Déconnexion */}
+            {/* <Pressable style={styles.logoutButton} onPress={() => {router.push('../app/index')}}>
+              <Text style={styles.logoutButtonText}>Déconnexion</Text>
+            </Pressable>
+          </DrawerContentScrollView> */}
+        {/* </View> */} */}

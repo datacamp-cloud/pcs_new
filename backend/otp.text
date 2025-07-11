@@ -1,0 +1,67 @@
+exports.sendOtp = async (req, res) => {
+  try {
+    const { phone } = req.body;
+
+    console.log('Phone:', phone);
+
+    // Vérification du format du numéro de téléphone
+    if (!isMobilePhone(phone, 'any', { strictMode: false })) {
+      console.log(phone);
+      return res.status(400).json({ message: "Numéro de téléphone invalide" });
+    }
+
+    // Générer un OTP aléatoire de 6 chiffres
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    // Définir l'expiration
+    const otpExpires = moment().add(10, 'minutes').toDate();
+
+    console.log("Utilisateur après mise à jour avec OTP :", user);
+
+
+    // Mise à jour de l'utilisateur avec l'OTP et son expiration
+    const user = await User.findOneAndUpdate(
+      { phone },
+      { otp, otpExpires },
+      { new: true }
+    );
+
+    console.log('Expires at:', user.otpExpires);  // Pour vérifier le type
+    console.log('Current time:', moment());  // Pour vérifier l'heure actuelle
+
+    return res.status(200).json({ message: 'OTP envoyé.', otp });  // Pour des raisons de test, on peut afficher l'OTP
+  } catch (error) {
+    return res.status(500).json({ message: 'Erreur serveur.', error });
+  }
+};
+// Vérification de l'OTP
+exports.verifyOtp = async (req, res) => {
+  try {
+    const { phone, otp } = req.body;
+
+    // Recherche de l'utilisateur
+    const user = await User.findOne({ phone });
+    if (!user) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé.' });
+    }
+
+    // Vérification si l'OTP existe et n'a pas expiré
+    if (user.otp !== otp) {
+      return res.status(400).json({ message: 'OTP incorrect.' });
+    }
+
+    const isOtpExpired = moment().isAfter(user.otpExpires);
+    if (isOtpExpired) {
+      return res.status(400).json({ message: 'L\'OTP a expiré.' });
+    }
+
+    // Mise à jour de l'état de vérification si besoin
+    user.isPhoneVerified = true;
+    user.otp = undefined;  // Retirer l'OTP après vérification réussie
+    user.otpExpires = undefined;  // Retirer l'expiration
+    await user.save();
+
+    return res.status(200).json({ message: 'OTP vérifié avec succès.' });
+  } catch (error) {
+    return res.status(500).json({ message: 'Erreur serveur.', error });
+  }
+};
