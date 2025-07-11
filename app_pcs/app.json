@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "app_pcs",
-    "slug": "app_pcs",
+    "slug": "pcsnewbuild",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -37,6 +37,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4daa14c3-0234-48ce-b192-bf1c8a4f31c8"
+      }
+    },
+    "owner": "pcs_xpress_app"
   }
 }
