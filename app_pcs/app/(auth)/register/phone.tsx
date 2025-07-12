@@ -69,7 +69,6 @@ export default function Phone() {
           {wordTop}
         </TextGlobal>
       </View>
-
       <PhoneInput
         ref={phoneInput}
         defaultValue={phone}
@@ -82,7 +81,6 @@ export default function Phone() {
         containerStyle={{ width: "100%", borderRadius: 10, marginVertical: 30 }}
         textContainerStyle={{ paddingVertical: 10, borderRadius: 10 }}
       />
-
       <TextGlobal style={{ textAlign: "center", fontSize: 18, fontWeight: "500", marginVertical: 20 }}>
         En utilisant notre application mobile, vous acceptez notre politique de confidentialité
         et nos conditions d&apos;utilisation
