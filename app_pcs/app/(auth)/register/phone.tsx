@@ -12,7 +12,7 @@ import ButtonGlobal from '../../../components/ButtonGlobal';
 import TitleGlobal from '@/components/TitleGlobal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import normalizePhone from '../../../../backend/utils/normalizePhone'; // Assuming you have a utility function for phone normalization
+import normalizePhone from '@/utils/normalizePhone'; // Assuming you have a utility function for phone normalization
 
 export default function Phone() {
   const [phone, setPhone] = useState('');
