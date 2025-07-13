@@ -14,6 +14,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
+app.get('/', (req, res) => {
+  res.send('🚀 API PCS en ligne');
+});
+
+app.get('/ping', (req, res) => {
+  res.send('pong');
+});
+
 mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB connecté"))
   .catch(err => console.log("Erreur MongoDB :", err));
 
