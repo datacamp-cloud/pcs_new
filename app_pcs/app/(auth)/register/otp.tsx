@@ -135,7 +135,7 @@ export default function VerifOtp() {
           justifyContent: "center", 
           marginVertical: 60
           }}>
-        <TitleGlobal style={{ fontSize: 20, marginLeft: 15, textAlign: "center",   }}>
+        <TitleGlobal style={{ fontSize: 26, marginLeft: 15, textAlign: "center",   }}>
           Saisissez le code reçu par SMS
         </TitleGlobal>
       </View>
@@ -191,18 +191,18 @@ const styles = StyleSheet.create({
   otpContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 40,
-    marginBottom: 20
+    // marginTop: 10,
+    marginBottom: 30,
   },
   otpInput: {
-    width: 55,
-    height: 55,
+    width: 45,
+    height: 80,
     borderWidth: 1,
-    borderRadius: 27.5,
-    marginHorizontal: 5,
+    borderRadius: 20,
+    marginHorizontal: 8,
     fontSize: 24,
     textAlign: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
   },
   
   otpInputFilled: {

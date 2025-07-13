@@ -129,9 +129,12 @@ const word = "Choisissez un code à 4 chiffres sûr et facile à retenir pour s�
             value={digit}
             onChangeText={(value) => handlePinChange(value, index)}
             maxLength={1}
-            autoFocus={index === 0}
+            // autoFocus={index === 0}
             textAlign="center"
             ref={ref => { inputRefs.current[index] = ref; }}
+            editable={false}
+            showSoftInputOnFocus={false}
+            pointerEvents="none"
           />
         ))}
       </View>
@@ -169,13 +172,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
+    fontSize: 26,
     textAlign: 'center',
   },
   subtitle: {
     marginTop: 8,
-    fontSize: 14,
     textAlign: 'center',
     color: '#666',
     paddingHorizontal: 20,
@@ -188,13 +189,14 @@ const styles = StyleSheet.create({
   },
   pinInput: {
     width: 55,
-    height: 55,
+    height: 80,
     borderWidth: 1,
-    borderRadius: 27.5,
+    borderRadius: 20,
     marginHorizontal: 10,
     fontSize: 24,
     textAlign: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
+    color: '#041145'
   },
   error: {
     color: 'red',
