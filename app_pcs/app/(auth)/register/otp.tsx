@@ -154,6 +154,9 @@ export default function VerifOtp() {
             autoFocus={index === 0}
             textAlign="center"
             ref={ref => { inputRefs.current[index] = ref; }}
+            editable={false}
+            showSoftInputOnFocus={false}
+            pointerEvents="none"
           />
         ))}
       </View>
@@ -186,11 +189,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#fff',
   },
 
   otpContainer: {
     flexDirection: "row",
     justifyContent: "center",
+    marginLeft: 30,
     // marginTop: 10,
     marginBottom: 30,
   },

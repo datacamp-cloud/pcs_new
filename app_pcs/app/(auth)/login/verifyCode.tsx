@@ -124,6 +124,9 @@ export default function VerifyPin() {
             value={digit}
             textAlign="center"
             autoFocus={index === 0}
+            editable={true}
+            showSoftInputOnFocus={false}
+            pointerEvents="auto"
           />
         ))}
       </View>
@@ -153,6 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#fff',
   },
   titleContainer: {
     flexDirection: 'row',
@@ -160,8 +164,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   title: {
-    fontSize: 25,
-    // fontWeight: 'bold',
+    fontSize: 26,
     textAlign: 'center',
   },
   pinContainer: {
@@ -172,13 +175,13 @@ const styles = StyleSheet.create({
   },
   pinInput: {
     width: 55,
-    height: 55,
+    height: 80,
     borderWidth: 1,
-    borderRadius: 27.5,
+    borderRadius: 20,
     marginHorizontal: 10,
     fontSize: 24,
     textAlign: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
   },
   error: {
     color: 'red',
