@@ -22,6 +22,12 @@ app.get('/ping', (req, res) => {
   res.send('pong');
 });
 
+app.post('/test', (req, res) => {
+  console.log("📬 Reçu POST test:", req.body);
+  res.json({ message: 'POST fonctionne 👍' });
+});
+
+
 mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB connecté"))
   .catch(err => console.log("Erreur MongoDB :", err));
 
