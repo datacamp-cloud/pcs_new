@@ -1,8 +1,8 @@
   const User = require('../models/User');
   const bcrypt = require('bcryptjs');
   const jwt = require('jsonwebtoken'); // Pour gérer l'authentification
-  const moment = require('moment'); // Pour gérer les dates et heures
-  const {isMobilePhone} = require('validator'); // Pour valider les numéros de téléphone
+  const moment = require('moment');
+  const {isMobilePhone} = require('validator');
   const normalizePhone = require('../utils/normalizePhone');
 
 
@@ -115,7 +115,7 @@
       // let phoneNumber = phone.toString().trim();
       // console.log(phoneNumber);
     
-      phoneNumber = normalizePhone(phone);
+      const phoneNumber = normalizePhone(phone.trim());
 
       console.log(
         {

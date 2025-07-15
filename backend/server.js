@@ -27,6 +27,10 @@ app.post('/test', (req, res) => {
   res.json({ message: 'POST fonctionne 👍' });
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', date: new Date() });
+});
+
 
 mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB connecté"))
   .catch(err => console.log("Erreur MongoDB :", err));
