@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import TextGlobal from './textGlobal';
+
 interface Props {
   onKeyPress: (value: string) => void;
   onDelete: () => void;
@@ -36,7 +38,7 @@ export default function CustomKeypad({ onKeyPress, onDelete }: Props) {
         <View key={rowIndex} style={styles.row}>
           {row.map((key) => (
             <Pressable key={key} onPress={() => onKeyPress(key)} style={styles.key}>
-              <Text style={styles.keyText}>{key}</Text>
+              <TextGlobal style={styles.keyText}>{key}</TextGlobal>
             </Pressable>
           ))}
         </View>
@@ -44,10 +46,10 @@ export default function CustomKeypad({ onKeyPress, onDelete }: Props) {
 
       {/* Dernière ligne : vide | 0 | delete */}
       <View style={styles.row}>
-        <View style={[styles.key, { backgroundColor: 'transparent' }]} />
+        <View style={[styles.key, { backgroundColor: 'transparent', borderColor: 'transparent' }]} />
         
         <Pressable onPress={() => onKeyPress(shuffledKeys[9])} style={styles.key}>
-          <Text style={styles.keyText}>{shuffledKeys[9]}</Text>
+          <TextGlobal style={styles.keyText}>{shuffledKeys[9]}</TextGlobal>
         </Pressable>
 
         <Pressable onPress={onDelete} style={styles.key}>
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     borderColor: '#E93F69',
     borderWidth: 1,
     justifyContent: 'center',

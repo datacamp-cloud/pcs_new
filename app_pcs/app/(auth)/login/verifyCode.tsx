@@ -3,7 +3,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import axios from 'axios';
 
-import {BASE_URL} from 'constant';
+import {BASE_URL} from '@/constant';
 import CustomKeypad from '@/components/CustomKeypads';
 
 import TextGlobal from '../../../components/textGlobal';
@@ -12,6 +12,7 @@ import InputGlobal from '../../../components/InputGlobal';
 import TitleGlobal from '@/components/TitleGlobal';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function VerifyPin() {
   const [pin, setPin] = useState(['', '', '', '']);
@@ -67,7 +68,7 @@ export default function VerifyPin() {
     }
 
     try {
-      const response = await axios.post('http://10.0.2.2:5000/api/auth/verify-pin', {
+      const response = await axios.post(`${BASE_URL}/api/auth/verify-pin`, {
         phone,
         confirmCode: pinCode,
       });
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
   },
   titleContainer: {
     flexDirection: 'row',

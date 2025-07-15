@@ -195,7 +195,8 @@ const styles = StyleSheet.create({
   otpContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginLeft: 30,
+    alignItems: 'center',
+    marginLeft: 20,
     // marginTop: 10,
     marginBottom: 30,
   },
